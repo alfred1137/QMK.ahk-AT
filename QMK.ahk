@@ -14,16 +14,16 @@
 ; A_MaxHotkeysPerInterval := 200
 
 ; Required
-#Include QMKClass.ahk ; houses the decision logic
+#Include dep\QMKClass.ahk ; houses the decision logic
 
 ; Recommended dependencies (mostly for first-time use to assess potential functionality, feel free to delete what you would like)
-; #Include Monitor Manager.ahk
-; #Include scroll.ahk
-; #Include mouse.ahk
-; #Include OnWebsite.ahk ; leave uncommented for website-specific support, though it does require OnWebsite.ahk (On class) and Descolada's UIA library
-#Include UIA\Lib\UIA.ahk
-#Include UIA\Lib\UIA_Browser.ahk
-; #Include TabActivator.ahk
+; #Include dep\Monitor Manager.ahk
+; #Include dep\scroll.ahk
+; #Include dep\mouse.ahk
+; #Include dep\OnWebsite.ahk ; leave uncommented for website-specific support, though it does require OnWebsite.ahk (On class) and Descolada's UIA library
+#Include dep\UIA\Lib\UIA.ahk
+#Include dep\UIA\Lib\UIA_Browser.ahk
+; #Include dep\TabActivator.ahk
 
 ; Configure a ShellHook to monitor window activation events. This triggers the fullscreen check only when switching windows, ensuring QMK auto-suspends efficiently without constant polling.
 ShellHookGui := Gui()
@@ -50,11 +50,11 @@ QMK.SetupModifier("i", "Alt")
 
 
 ; Window management - "a" layer + arrow keys/other. Note that combos override the 'a' keys, 'modifier' behavior for 2 key combos only.
-QMK.SetupCombo("a", "h", (*) => mm.SnapLeft("A"))
-QMK.SetupCombo("a", "l", (*) => mm.SnapRight("A"))
-QMK.SetupCombo("a", "j", (*) => mm.GestureDL())
-QMK.SetupCombo("a", "k", (*) => mm.GestureUR())
-QMK.SetupCombo("a", "g", (*) => Send("!{Tab}"))
+; QMK.SetupCombo("a", "h", (*) => mm.SnapLeft("A"))
+; QMK.SetupCombo("a", "l", (*) => mm.SnapRight("A"))
+; QMK.SetupCombo("a", "j", (*) => mm.GestureDL())
+; QMK.SetupCombo("a", "k", (*) => mm.GestureUR())
+; QMK.SetupCombo("a", "g", (*) => Send("!{Tab}"))
 ; extra 'a' keys - I'll always want these combinations to trigger instantly
 QMK.SetupInstantCombo("a", ";", (*) => SendEvent("{Backspace}"))
 QMK.SetupInstantCombo("a", "'", (*) => SendEvent("^{Backspace}"))
